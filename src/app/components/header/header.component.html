@@ -1,0 +1,13 @@
+<header>
+  <h3 class="header-logo">AngularApp</h3>
+  <nav class="header-nav-container">
+    <ul class="header-nav">
+      <li (click)="goToPosts()">Posts</li>
+      <li *ngIf="!isLogged" (click)="goToRegister()">Register</li>
+      <li *ngIf="!isLogged" (click)="goToLogin()">Login</li>
+
+      <li (click)="logOut()" *ngIf="isLogged">Logout</li>
+    </ul>
+  </nav>
+  <div class="header-empty"></div>
+</header>

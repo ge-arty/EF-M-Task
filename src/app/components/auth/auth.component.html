@@ -1,0 +1,12 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit()" [formGroup]="accountForm" class="form">
+    <label for="email">Email:</label>
+    <input id="email" type="email" formControlName="email" />
+
+    <label for="password">Password: </label>
+    <input id="password" type="password" formControlName="password" />
+
+    <p>Complete the form to enable the button.</p>
+    <button type="submit" [disabled]="!accountForm.valid">Submit</button>
+  </form>
+</div>

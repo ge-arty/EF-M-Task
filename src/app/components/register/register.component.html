@@ -1,0 +1,82 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit()" [formGroup]="accountForm" class="form">
+    <div class="input-group">
+      <label for="first-name">First Name:</label>
+      <input id="first-name" type="text" formControlName="firstName" />
+      <div
+        class="error-message"
+        *ngIf="
+          accountForm.get('firstName')?.hasError('required') &&
+          accountForm.get('firstName')?.touched
+        "
+      >
+        First name is required.
+      </div>
+      <div class="info-message">Only characters</div>
+    </div>
+
+    <div class="input-group">
+      <label for="last-name">Last Name:</label>
+      <input id="last-name" type="text" formControlName="lastName" />
+      <div
+        class="error-message"
+        *ngIf="
+          accountForm.get('lastName')?.hasError('required') &&
+          accountForm.get('lastName')?.touched
+        "
+      >
+        Last name is required.
+      </div>
+      <div class="info-message">Only characters</div>
+    </div>
+
+    <div class="input-group">
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email" />
+      <div
+        class="error-message"
+        *ngIf="
+          accountForm.get('email')?.hasError('required') &&
+          accountForm.get('email')?.touched
+        "
+      >
+        Email is required.
+      </div>
+      <div
+        class="error-message"
+        *ngIf="
+          accountForm.get('email')?.hasError('email') &&
+          accountForm.get('email')?.touched
+        "
+      >
+        Invalid email format.
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="password">Password:</label>
+      <input id="password" type="password" formControlName="password" />
+      <div
+        class="error-message"
+        *ngIf="
+          accountForm.get('password')?.hasError('required') &&
+          accountForm.get('password')?.touched
+        "
+      >
+        Password is required.
+      </div>
+      <div
+        class="error-message"
+        *ngIf="
+          accountForm.get('password')?.hasError('minlength') &&
+          accountForm.get('password')?.touched
+        "
+      >
+        Password should be at least 6 characters long.
+      </div>
+    </div>
+
+    <p class="form-note">Complete the form to enable the button.</p>
+    <button type="submit" [disabled]="!accountForm.valid">Submit</button>
+  </form>
+</div>
